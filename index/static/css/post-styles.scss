@@ -1,0 +1,126 @@
+@import "compass/css3";
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+$size:150px;
+$bg:#CDE;
+
+body{
+  padding:0 100px 100px;
+  background-color: $bg !important;
+}
+
+h1#header{
+  text-align: center;
+  padding:107px;
+  font-size: 62px;
+  font-family: "Pacifico";
+  @include text-shadow(0 2px 2px darken($bg,40%));
+}
+
+.article-wrapper{
+  @include transition(width .4s);
+}
+
+article{
+  position:relative;
+  padding-left:$size + 30;
+  padding-right: $size/2;
+  height: $size;
+  margin-bottom: 30px;
+  background-color: #FFF;
+  @include border-radius($size);
+  cursor:pointer;
+  
+  .img-wrapper{
+    position: absolute;
+    top:- 10px;
+    left:-10px;
+    @include border-radius(100px);
+    background-color: $bg;
+    padding:10px;
+    z-index: 1000;
+    @include transition(all .2s);
+    
+    img{
+      @include border-radius(100px);
+      @include transition(all .2s);
+      width: $size;
+    }
+  }
+  
+  h1{
+    height: $size/2;
+    line-height: $size/2;
+    font-size: 24px;
+    border-bottom: 2px solid $bg;
+    color: #428bca;
+    @include transition(all .4s);
+  }
+  p{
+    color: #888;
+  }
+  a{
+    position:absolute;
+    display:block;
+    top: 0;
+    left: 0;
+    height: 100%;
+    line-height: $size;
+    text-align: center;
+    width: 100%;
+    background-color: #FFF;
+    font-size: 48px;
+    font-style:italic;
+    opacity:0;
+    color: #428bca !important;
+    @include transition(all .4s);
+    text-decoration: none !important;
+    @include border-radius($size);
+    font-family: "Pacifico";
+    @include text-shadow(0 1px 1px #AAA);
+  }
+   &:hover{
+    .img-wrapper{
+      padding:5px;
+      @include transform(rotate(5deg));
+      img{
+        width: $size + 10;
+      }
+    }
+    a{
+      opacity:1;
+    }
+  }
+}
+
+.bloc{
+  article{
+    padding:10px;
+    height: $size*1.5;
+    @include border-radius(3px);
+    margin-top: $size/2;
+    
+    .img-wrapper{
+      position: relative;
+      top:-($size+20)/2;
+      width: $size+20;
+      left:inherit;
+      margin: auto;
+      margin-bottom: -$size + 50;
+    }
+    
+    h1{
+      font-size: 14px;
+      height: $size/4;
+      line-height: $size/4;
+    }
+    
+    p{
+      font-size: 12px;
+    }
+    
+    a{
+       @include border-radius(3px);
+       line-height: $size*1.5 +30;
+    }
+  }
+}
